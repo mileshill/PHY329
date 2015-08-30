@@ -1,0 +1,135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3414,        126]
+NotebookOptionsPosition[      2694,         95]
+NotebookOutlinePosition[      3036,        110]
+CellTagsIndexPosition[      2993,        107]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Roots", "Title",
+ CellChangeTimes->{{3.649953402083594*^9, 3.649953405578*^9}, {
+  3.649953479941255*^9, 3.6499534805184565`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Open Methods", "Chapter",
+ CellChangeTimes->{{3.6499534844184628`*^9, 3.6499534864640665`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Miles Hill", "Subchapter",
+ CellChangeTimes->{{3.649953493140679*^9, 3.6499534957146835`*^9}}],
+
+Cell["Initialization", "Section",
+ CellChangeTimes->{{3.649953538752163*^9, 3.6499535405949664`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Homework #1 ( 2015 )", "Section",
+ CellChangeTimes->{{3.649953566735013*^9, 3.6499535713682213`*^9}}],
+
+Cell["6.19", "Subsection",
+ CellChangeTimes->{{3.6499535777682323`*^9, 3.649953578392234*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["6.21 Projectile Motion", "Subsection",
+ CellChangeTimes->{{3.6499535822182407`*^9, 3.649953586463448*^9}, {
+  3.6499536515290117`*^9, 3.649953655044018*^9}}],
+
+Cell[TextData[{
+ "The trajectory of an object defined by the xy-coordinates can be modeled by \
+the given equation. Find the appropriate initial angle ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Theta]", "0"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["v", "0"], "=", 
+    RowBox[{"30", " ", 
+     RowBox[{"m", "/", "s"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and the horizontal distance is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]x", " ", "=", 
+    RowBox[{"90", "m"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Note that the initial elevation and final elevation are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", "0"], ",", 
+    RowBox[{
+     SubscriptBox["y", "f"], "=", "1.8"}], ",", "1.0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " meters."
+}], "Text",
+ CellChangeTimes->{{3.649953659989227*^9, 3.649953705259907*^9}, {
+  3.6499537492961855`*^9, 3.649953880202817*^9}}]
+}, Open  ]],
+
+Cell["6.29", "Subsection",
+ CellChangeTimes->{{3.649953591517857*^9, 3.6499535921574583`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 835},
+WindowMargins->{{Automatic, 183}, {Automatic, 3}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 136, 2, 90, "Title"],
+Cell[CellGroupData[{
+Cell[741, 28, 101, 1, 64, "Chapter"],
+Cell[CellGroupData[{
+Cell[867, 33, 100, 1, 62, "Subchapter"],
+Cell[970, 36, 101, 1, 63, "Section"],
+Cell[CellGroupData[{
+Cell[1096, 41, 107, 1, 49, "Section"],
+Cell[1206, 44, 94, 1, 43, "Subsection"],
+Cell[CellGroupData[{
+Cell[1325, 49, 163, 2, 35, "Subsection"],
+Cell[1491, 53, 1042, 32, 68, "Text"]
+}, Open  ]],
+Cell[2548, 88, 94, 1, 43, "Subsection"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
