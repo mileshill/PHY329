@@ -5,14 +5,14 @@
 !==================================================================
 PROGRAM main
 	IMPLICIT NONE
-	REAL*8 :: f, x1, x2, root, eps, root
+	REAL*8 :: f, x1, x2, eps, root
 	INTEGER :: flag
 	
 	EXTERNAL f  ! call to function being solved
 
 	! Set interval bounds and error tolerance
-	x1 = 
-	x2 =
+	x1 = 0.5
+	x2 = 2.0
 	eps = 1.0e-6
 
 	call Bisection( f, x1, x2, eps, root, flag )
@@ -56,7 +56,7 @@ SUBROUTINE Bisection(f, x1, x2, eps, root, flag)
 
 	! Check the bisection condition f(x1)*f(x2) < 0
 	if ( f(x1) * f(x2) .gt. 0.0 ) then
-		flag = 0
+		flag = 0 
 		return
 	end if
 
@@ -64,7 +64,7 @@ SUBROUTINE Bisection(f, x1, x2, eps, root, flag)
 	a = x1
 	b = x2
 
-	! Begin iteration
+	! Begin iteration: shifts (a,b) to solve for root
 	do i = 1, iter
 		c = (b+a)/2.0	! interval midpoint
 		
@@ -78,7 +78,8 @@ SUBROUTINE Bisection(f, x1, x2, eps, root, flag)
 		! Stop condition
 		if ( abs( b - a ) < eps ) then
 			exit
-	
+		end if
+		
 	end do
 
 	root = ( b + a )/2.0
