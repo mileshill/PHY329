@@ -1,16 +1,8 @@
-! RUNNING THIS CODE
-! You must call the function, in a separate file, to be compiled:
-! eg: function is in c5p7  "Chp 5 Prob 7"
-! 
-! >>> gfortran Bisection.f90 c5p7.f90 -o c5p7
-! >>> ./c5p7
-
 !==================================================================
 ! MAIN
 ! Determine a single root of an equation f(x) == 0 in [x1, x2] 
 ! Method: Bisection
 !==================================================================
-
 PROGRAM main
 	
 	IMPLICIT NONE
