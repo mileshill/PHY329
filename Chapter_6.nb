@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8135,        279]
-NotebookOptionsPosition[      6889,        231]
-NotebookOutlinePosition[      7260,        247]
-CellTagsIndexPosition[      7217,        244]
+NotebookDataLength[     10885,        347]
+NotebookOptionsPosition[      9474,        294]
+NotebookOutlinePosition[      9845,        310]
+CellTagsIndexPosition[      9802,        307]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -44,8 +44,9 @@ Cell["Homework #1 ( 2015 )", "Section",
 
 Cell[CellGroupData[{
 
-Cell["6.19", "Subsection",
- CellChangeTimes->{{3.6499535777682323`*^9, 3.649953578392234*^9}}],
+Cell["6.19 Determine Frequency for Given Impedence", "Subsection",
+ CellChangeTimes->{{3.6499535777682323`*^9, 3.649953578392234*^9}, {
+  3.650144848957461*^9, 3.650144860565996*^9}}],
 
 Cell["\<\
 The figure shows a circuit with a resistor, an inductor, and a capacitor in \
@@ -78,8 +79,7 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{"Z", " ", "=", " ", 
-    RowBox[{"impedance", "(", "\[CapitalOmega]", ")"}]}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
+    RowBox[{"impedance", "(", "\[CapitalOmega]", ")"}]}], TraditionalForm]]],
  ", and \[Omega] is the angular frequency. "
 }], "Text",
  CellChangeTimes->{{3.650142319239133*^9, 3.65014235629282*^9}}],
@@ -101,6 +101,16 @@ Cell[TextData[{
 }], "Text",
  CellChangeTimes->{{3.650142564737291*^9, 3.6501426075280886`*^9}, {
   3.650144237694825*^9, 3.650144240674431*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Code", "Subsubsection",
+ CellChangeTimes->{{3.650144804204625*^9, 3.650144804750727*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$Line", "=", "0"}], ";"}]], "Input",
+ CellChangeTimes->{{3.650144892577504*^9, 3.650144895952015*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -125,59 +135,112 @@ Cell[BoxData[
   3.650142924256716*^9, 3.6501429299142284`*^9}, {3.6501429881662617`*^9, 
   3.6501430046188974`*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
-  RowBox[{"NSolve", "[", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"NSolve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Z", "[", 
+         RowBox[{"225.", ",", 
+          RowBox[{"0.6", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], 
+       " ", "\[Equal]", " ", "100"}], " ", "&&", " ", 
+      RowBox[{"1.0", "<", "\[Omega]", "<", "1000."}]}], ",", "\[Omega]", ",", 
+     "Reals"}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6501438173842793`*^9, 3.650143879782691*^9}, {
+   3.650143913880051*^9, 3.650144004744213*^9}, 3.6501449046863422`*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"FindRoot", "[", " ", 
     RowBox[{
      RowBox[{
       RowBox[{
        RowBox[{"Z", "[", 
-        RowBox[{"225.", ",", 
-         RowBox[{"0.6", " ", 
+        RowBox[{"225.0", ",", 
+         RowBox[{".6", " ", 
           SuperscriptBox["10", 
-           RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], " ",
-       "\[Equal]", " ", "100"}], " ", "&&", " ", 
-     RowBox[{"1.0", "<", "\[Omega]", "<", "1000."}]}], ",", "\[Omega]", ",", 
-    "Reals"}], "]"}], "[", 
-  RowBox[{"[", "1", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.6501438173842793`*^9, 3.650143879782691*^9}, {
-  3.650143913880051*^9, 3.650144004744213*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\[Omega]", "\[Rule]", "220.02015638821746`"}], "}"}]], "Output",
- CellChangeTimes->{{3.6501438606120567`*^9, 3.6501438807810926`*^9}, {
-  3.650143916032855*^9, 3.650144010396423*^9}}]
+           RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], "-",
+       "100"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Omega]", ",", "1"}], "}"}], ",", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "5"}], ",", 
+     RowBox[{"PrecisionGoal", "\[Rule]", "6"}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.650144096278475*^9, 3.650144175499915*^9}, {
+  3.6501442146597843`*^9, 3.650144222953399*^9}, {3.6501449089387536`*^9, 
+  3.6501449161349735`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"FindRoot", "[", " ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{
-     RowBox[{"Z", "[", 
-      RowBox[{"225.0", ",", 
-       RowBox[{".6", " ", 
-        SuperscriptBox["10", 
-         RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], "-", 
-    "100"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\[Omega]", ",", "1"}], "}"}], ",", 
-   RowBox[{"AccuracyGoal", "\[Rule]", "5"}], ",", 
-   RowBox[{"PrecisionGoal", "\[Rule]", "6"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.650144096278475*^9, 3.650144175499915*^9}, {
-  3.6501442146597843`*^9, 3.650144222953399*^9}}],
+Cell["Output", "Subsubsection",
+ CellChangeTimes->{{3.6501448111242485`*^9, 3.650144811721551*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\[Omega]", "\[Rule]", "220.02015638816272`"}], "}"}]], "Output",
- CellChangeTimes->{{3.6501441615877905`*^9, 3.6501441768415174`*^9}, 
-   3.6501442239518013`*^9}]
+ RowBox[{"DisplayColumn", "[", 
+  RowBox[{"\"\<Problem 6.19\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<NSolve\>\"", ",", "\"\<FindRoot\>\""}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Out", "[", "2", "]"}], ",", 
+     RowBox[{"Out", "[", "3", "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6501448134059553`*^9, 3.650144838906232*^9}, {
+  3.650144874864646*^9, 3.650144883224574*^9}, {3.6501449224703913`*^9, 
+  3.650144930394615*^9}}],
+
+Cell[BoxData[
+ PanelBox[
+  TemplateBox[{TagBox[
+     GridBox[{{
+        StyleBox[
+        "\"NSolve\"", {
+         FontFamily -> "Calibri", FontSize -> 16, Background -> 
+          RGBColor[0.75, 0.75, 0.75]}, StripOnInput -> False]}, {
+        RowBox[{"{", 
+          RowBox[{"\[Omega]", "\[Rule]", "220.02015638821746`"}], "}"}]}, {
+        StyleBox[
+        "\"FindRoot\"", {
+         FontFamily -> "Calibri", FontSize -> 16, Background -> 
+          RGBColor[0.75, 0.75, 0.75]}, StripOnInput -> False]}, {
+        RowBox[{"{", 
+          RowBox[{"\[Omega]", "\[Rule]", "220.02015638816272`"}], "}"}]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+      GridBoxBackground -> {"Columns" -> {{
+           GrayLevel[1]}}}, DefaultBaseStyle -> "Column", 
+      GridBoxDividers -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      GridBoxSpacings -> {"Columns" -> {{Automatic}}, "Rows" -> {{1.5}}}], 
+     "Column"],StyleBox[
+    "\"Problem 6.19\"", {
+     FontFamily -> "Calibri", FontSize -> 20, Background -> 
+      RGBColor[0.75, 0.75, 0.75]}, StripOnInput -> False]},
+   "Labeled",
+   DisplayFunction->(GridBox[{{
+       ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+       TagBox[
+        ItemBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+        "SkipImageSizeLevel"]}}, 
+     GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+     AutoDelete -> False, 
+     GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+      BaselinePosition -> {2, 1}]& ),
+   InterpretationFunction->(RowBox[{"Labeled", "[", 
+      RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]]], "Output",
+ CellChangeTimes->{3.650144870386629*^9, 3.6501449308383164`*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -256,27 +319,32 @@ Cell[970, 36, 101, 1, 78, "Section"],
 Cell[CellGroupData[{
 Cell[1096, 41, 107, 1, 60, "Section"],
 Cell[CellGroupData[{
-Cell[1228, 46, 94, 1, 53, "Subsection"],
-Cell[1325, 49, 269, 5, 63, "Text"],
-Cell[1597, 56, 550, 17, 84, "DisplayFormulaNumbered"],
-Cell[2150, 75, 317, 9, 38, "Text"],
-Cell[2470, 86, 344, 7, 89, "Text"],
-Cell[2817, 95, 277, 7, 39, "Text"],
-Cell[3097, 104, 677, 21, 55, "Input"],
+Cell[1228, 46, 183, 2, 53, "Subsection"],
+Cell[1414, 50, 269, 5, 63, "Text"],
+Cell[1686, 57, 550, 17, 85, "DisplayFormulaNumbered"],
+Cell[2239, 76, 284, 8, 38, "Text"],
+Cell[2526, 86, 344, 7, 89, "Text"],
+Cell[2873, 95, 277, 7, 39, "Text"],
 Cell[CellGroupData[{
-Cell[3799, 129, 617, 17, 64, "Input"],
-Cell[4419, 148, 223, 4, 36, "Output"]
+Cell[3175, 106, 95, 1, 42, "Subsubsection"],
+Cell[3273, 109, 137, 3, 36, "Input"],
+Cell[3413, 114, 677, 21, 55, "Input"],
+Cell[4093, 137, 674, 18, 41, "Input"],
+Cell[4770, 157, 721, 19, 87, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4679, 157, 587, 16, 65, "Input"],
-Cell[5269, 175, 202, 4, 36, "Output"]
+Cell[5528, 181, 99, 1, 42, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[5652, 186, 478, 11, 36, "Input"],
+Cell[6133, 199, 1911, 42, 260, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5520, 185, 163, 2, 53, "Subsection"],
-Cell[5686, 189, 1042, 32, 88, "Text"]
+Cell[8105, 248, 163, 2, 53, "Subsection"],
+Cell[8271, 252, 1042, 32, 88, "Text"]
 }, Open  ]],
-Cell[6743, 224, 94, 1, 53, "Subsection"]
+Cell[9328, 287, 94, 1, 53, "Subsection"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
