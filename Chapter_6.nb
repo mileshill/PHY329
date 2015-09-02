@@ -258,18 +258,18 @@ Cell[1096, 41, 107, 1, 60, "Section"],
 Cell[CellGroupData[{
 Cell[1228, 46, 94, 1, 53, "Subsection"],
 Cell[1325, 49, 269, 5, 63, "Text"],
-Cell[1597, 56, 550, 17, 85, "DisplayFormulaNumbered"],
+Cell[1597, 56, 550, 17, 84, "DisplayFormulaNumbered"],
 Cell[2150, 75, 317, 9, 38, "Text"],
 Cell[2470, 86, 344, 7, 89, "Text"],
 Cell[2817, 95, 277, 7, 39, "Text"],
 Cell[3097, 104, 677, 21, 55, "Input"],
 Cell[CellGroupData[{
-Cell[3799, 129, 617, 17, 41, "Input"],
+Cell[3799, 129, 617, 17, 64, "Input"],
 Cell[4419, 148, 223, 4, 36, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[4679, 157, 587, 16, 65, "Input"],
-Cell[5269, 175, 202, 4, 69, "Output"]
+Cell[5269, 175, 202, 4, 36, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
