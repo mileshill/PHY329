@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3414,        126]
-NotebookOptionsPosition[      2694,         95]
-NotebookOutlinePosition[      3036,        110]
-CellTagsIndexPosition[      2993,        107]
+NotebookDataLength[      8135,        279]
+NotebookOptionsPosition[      6889,        231]
+NotebookOutlinePosition[      7260,        247]
+CellTagsIndexPosition[      7217,        244]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -42,8 +42,144 @@ Cell[CellGroupData[{
 Cell["Homework #1 ( 2015 )", "Section",
  CellChangeTimes->{{3.649953566735013*^9, 3.6499535713682213`*^9}}],
 
+Cell[CellGroupData[{
+
 Cell["6.19", "Subsection",
  CellChangeTimes->{{3.6499535777682323`*^9, 3.649953578392234*^9}}],
+
+Cell["\<\
+The figure shows a circuit with a resistor, an inductor, and a capacitor in \
+parallel. Kirchoff\[CloseCurlyQuote]s rules can be used to express the \
+impedance of the system as\
+\>", "Text",
+ CellChangeTimes->{{3.6501422302479286`*^9, 3.650142258766594*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["1", "Z"], "=", 
+   SqrtBox[
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["R", "2"]], "+", 
+     SuperscriptBox[
+      RowBox[{"(", " ", 
+       RowBox[{
+        RowBox[{"\[Omega]", " ", "C"}], " ", "-", " ", 
+        FractionBox["1", 
+         RowBox[{"\[Omega]", " ", "L"}]]}], ")"}], "2"]}]]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.6501422685621166`*^9, 3.650142311107111*^9}, {
+  3.6501426203169155`*^9, 3.650142620348116*^9}},
+ TextAlignment->Center],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Z", " ", "=", " ", 
+    RowBox[{"impedance", "(", "\[CapitalOmega]", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and \[Omega] is the angular frequency. "
+}], "Text",
+ CellChangeTimes->{{3.650142319239133*^9, 3.65014235629282*^9}}],
+
+Cell[TextData[{
+ "Find \[Omega] that results in an impedance of 100\[CapitalOmega] using the ",
+ StyleBox["fzero",
+  FontSlant->"Italic"],
+ " function with initial guesses of 1 and 10^3 for the given parameters.\n\
+R,C,L = 225\[CapitalOmega], 0.6 10e-6 F, 0.5 H"
+}], "Text",
+ CellChangeTimes->{{3.6501423589280252`*^9, 3.6501424665788674`*^9}}],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " equivalent of Matlab fzero will one of the following: NSolve, FindRoot"
+}], "Text",
+ CellChangeTimes->{{3.650142564737291*^9, 3.6501426075280886`*^9}, {
+  3.650144237694825*^9, 3.650144240674431*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Z", "[", 
+   RowBox[{"r_", ",", "c_", ",", "l_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"r", "^", "2"}]], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"#", " ", "c"}], "-", 
+         FractionBox["1", 
+          RowBox[{"#", " ", "l"}]]}], ")"}], "^", "2"}]}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "/", "2"}], ")"}]}], "&"}]}]], "Input",
+ CellChangeTimes->{{3.650142643810169*^9, 3.650142803939732*^9}, {
+  3.650142924256716*^9, 3.6501429299142284`*^9}, {3.6501429881662617`*^9, 
+  3.6501430046188974`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Z", "[", 
+        RowBox[{"225.", ",", 
+         RowBox[{"0.6", " ", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], " ",
+       "\[Equal]", " ", "100"}], " ", "&&", " ", 
+     RowBox[{"1.0", "<", "\[Omega]", "<", "1000."}]}], ",", "\[Omega]", ",", 
+    "Reals"}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6501438173842793`*^9, 3.650143879782691*^9}, {
+  3.650143913880051*^9, 3.650144004744213*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\[Omega]", "\[Rule]", "220.02015638821746`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6501438606120567`*^9, 3.6501438807810926`*^9}, {
+  3.650143916032855*^9, 3.650144010396423*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindRoot", "[", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Z", "[", 
+      RowBox[{"225.0", ",", 
+       RowBox[{".6", " ", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "6"}]]}], ",", "0.5"}], "]"}], "@", "\[Omega]"}], "-", 
+    "100"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Omega]", ",", "1"}], "}"}], ",", 
+   RowBox[{"AccuracyGoal", "\[Rule]", "5"}], ",", 
+   RowBox[{"PrecisionGoal", "\[Rule]", "6"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.650144096278475*^9, 3.650144175499915*^9}, {
+  3.6501442146597843`*^9, 3.650144222953399*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\[Omega]", "\[Rule]", "220.02015638816272`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6501441615877905`*^9, 3.6501441768415174`*^9}, 
+   3.6501442239518013`*^9}]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -93,8 +229,9 @@ Cell["6.29", "Subsection",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{759, 835},
-WindowMargins->{{Automatic, 183}, {Automatic, 3}},
+WindowSize->{944, 982},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.25 Inherited,
 FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 29, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -110,20 +247,36 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 136, 2, 90, "Title"],
+Cell[580, 22, 136, 2, 113, "Title"],
 Cell[CellGroupData[{
-Cell[741, 28, 101, 1, 64, "Chapter"],
+Cell[741, 28, 101, 1, 80, "Chapter"],
 Cell[CellGroupData[{
-Cell[867, 33, 100, 1, 62, "Subchapter"],
-Cell[970, 36, 101, 1, 63, "Section"],
+Cell[867, 33, 100, 1, 77, "Subchapter"],
+Cell[970, 36, 101, 1, 78, "Section"],
 Cell[CellGroupData[{
-Cell[1096, 41, 107, 1, 49, "Section"],
-Cell[1206, 44, 94, 1, 43, "Subsection"],
+Cell[1096, 41, 107, 1, 60, "Section"],
 Cell[CellGroupData[{
-Cell[1325, 49, 163, 2, 35, "Subsection"],
-Cell[1491, 53, 1042, 32, 68, "Text"]
+Cell[1228, 46, 94, 1, 53, "Subsection"],
+Cell[1325, 49, 269, 5, 63, "Text"],
+Cell[1597, 56, 550, 17, 85, "DisplayFormulaNumbered"],
+Cell[2150, 75, 317, 9, 38, "Text"],
+Cell[2470, 86, 344, 7, 89, "Text"],
+Cell[2817, 95, 277, 7, 39, "Text"],
+Cell[3097, 104, 677, 21, 55, "Input"],
+Cell[CellGroupData[{
+Cell[3799, 129, 617, 17, 41, "Input"],
+Cell[4419, 148, 223, 4, 36, "Output"]
 }, Open  ]],
-Cell[2548, 88, 94, 1, 43, "Subsection"]
+Cell[CellGroupData[{
+Cell[4679, 157, 587, 16, 65, "Input"],
+Cell[5269, 175, 202, 4, 69, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5520, 185, 163, 2, 53, "Subsection"],
+Cell[5686, 189, 1042, 32, 88, "Text"]
+}, Open  ]],
+Cell[6743, 224, 94, 1, 53, "Subsection"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
