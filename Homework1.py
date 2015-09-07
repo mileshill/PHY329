@@ -87,8 +87,8 @@ def c5p22():
 	return {'bisection': num.bisection( f,a,b ) ,'false_position':eng_form( num.false_position(f,a,b) ) }
 
 #-----------------------------------------------------------
-# C6 P22: Solve using NewtonRaphson. 
-#	
+# C6 P19: Solve using NewtonRaphson, Secant. 
+#	Solving for frequency with desired impedance
 #-----------------------------------------------------------
 def c6p19():
 	# Impedance
@@ -104,11 +104,31 @@ def c6p19():
 
 	return {'newton_raphson': num.newton_raphson( f,x0 ), 'secant_method': num.secant_method( f, x0, x1 ), 'modified_secant': num.modified_secant( f,x1,dx) }
 
+#-----------------------------------------------------------
+# C6 P21: Solve using NewtonRaphson, Secant. 
+#	Determine angles given initial and final endpoints
+#-----------------------------------------------------------
+def c6p22():
+	# Trajectory
+	def y(theta, x, v0, y0, g=9.8 ):
+		return np.tan( theta ) * x - (g * x**2) /( 2 * v0**2 * np.cos( theta )**2 ) + y0
+
+	# Constants
+	v0, x, y0, y1 = 30., 90, 1.8, 1.
+	deg = ( 180. / np.pi )
+
+	# Args for solution
+	f = lambda theta: y( theta, x, v0, y0 ) - y1
+
+	return { 'newton_raphson th1': deg * num.newton_raphson( f,0.4 ), 'newton_raphson th2': deg * num.newton_raphson( f, 0.9 ) ,'secant_method th1': deg * num.secant_method(f,0.4, 0.45 ), 'secant_method th2':deg * num.secant_method( f,0.9,0.95 )  }
+
+
 # Solutions
 solutions = OrderedDict()
 solutions['Chapter 5: Problem 7']  = c5p7()
 solutions['Chapter 5: Problem 16'] = c5p16()
 solutions['Chapter 5: Problem 22'] = c5p22()
 solutions['Chapter 6: Problem 19'] = c6p19()
+solutions['Chapter 6: Problem 22'] = c6p22()
 
  
