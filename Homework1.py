@@ -78,7 +78,7 @@ def c5p22():
 	def vol_disp( rad, h ):
 		return vol_sphere(rad) - vol_dry( rad, h )
 
-	# Contants
+	# Constants
 	rho_object, rho_medium, rad = 200., 1000., 1.
 	# args for solutions
 	f = lambda h: force_grav( rho_object, vol_sphere( rad )) - force_buoy( rho_medium, vol_disp( rad,h ))
@@ -86,12 +86,29 @@ def c5p22():
 
 	return {'bisection': num.bisection( f,a,b ) ,'false_position':eng_form( num.false_position(f,a,b) ) }
 
+#-----------------------------------------------------------
+# C6 P22: Solve using NewtonRaphson. 
+#	
+#-----------------------------------------------------------
+def c6p19():
+	# Impedance
+	def z(r, c, l, w):
+		return np.sqrt( r**(-2) + ( w * c - (w * l)**(-1) )**2 )**(-1)
 
+	# Constants
+	r, c, l, z_desired = 225., 0.6 * 10**(-6), 0.5, 100.
+
+	# Args for solution
+	f = lambda w: z(r, c, l, w) - z_desired
+	x0, x1, dx = 210, 215, 10**(-4)
+
+	return {'newton_raphson': num.newton_raphson( f,x0 ), 'secant_method': num.secant_method( f, x0, x1 ), 'modified_secant': num.modified_secant( f,x1,dx) }
 
 # Solutions
 solutions = OrderedDict()
 solutions['Chapter 5: Problem 7']  = c5p7()
 solutions['Chapter 5: Problem 16'] = c5p16()
 solutions['Chapter 5: Problem 22'] = c5p22()
+solutions['Chapter 6: Problem 19'] = c6p19()
 
  

@@ -1,10 +1,10 @@
 #----------------------------------------------------------------------
 # NumericalMethods 
-#---------------------------------------------------------------------
+#----------------------------------------------------------------------
 
 
 
-# -------------------- BRACKETING METHODS ----------------------------
+# -------------------- BRACKETING METHODS (Closed)---------------------
 
 ######################################################################
 # BISECTION:
@@ -89,3 +89,65 @@ def false_position( func, lower, upper, maxSteps=100,tol=10**(-6) ):
 		i += 1
 	#end while
 	return p
+
+# -------------------- OPEN METHODS ----------------------------
+######################################################################
+# NewtonRaphson:
+# Takes as input a function and initial root guess
+#	optional assignments of maxSteps and tolerance  
+######################################################################
+def newton_raphson( f, x0, maxSteps=10, tol=10.**(-6) ):
+	import numdifftools as nd
+	fp = nd.Derivative( f )
+	
+	i = 1;
+	a = x0
+
+
+	while (i < maxSteps):
+		
+		b = a - f(a) / fp(a)
+
+		if ( b - a ) < tol: return b
+
+		a = b
+		i += 1
+	# end while
+	return b
+
+######################################################################
+# Secant method:
+# Takes as input a function and initial steps x0, x1
+#	optional assignments of maxSteps and tolerance  
+######################################################################
+def secant_method( f, x0, x1, maxSteps=10, tol=10.**(-6) ):
+	i = 1
+	a, b = x0, x1
+	while (i < maxSteps) and (abs(b-a) > tol):
+		c = b - (( f( b ) * ( a - b ) )/ ( f( a )-f( b ) ) )
+
+		if abs( c - b ) < tol: return c
+
+		a, b = b, c
+		i += 1
+	# end while
+	return c
+
+######################################################################
+# Modified secant method:
+# Takes as input a function and initial root guess and perturbation dx
+#	optional assignments of maxSteps and tolerance  
+######################################################################
+def modified_secant( f, x0, dx, maxSteps=10, tol=10.**(-6) ):
+	i = 1
+	a = x0
+
+	while (i < maxSteps):
+		b = a - (( dx * a * f( a ) ) / ( f( a + dx * a ) - f( a ) ))
+
+		if abs( b - a ) < tol: return b
+
+		a = b
+		i += 1
+	# end while
+	return b
