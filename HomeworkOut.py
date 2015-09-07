@@ -17,6 +17,10 @@ import Homework1
 # MAIN
 ##########
 def main():
+	stdout.write("MILES HILL: mjh3664\n")
+	stdout.write("Homework 1\n")
+	stdout.write("UT PHY 329\n")
+	stdout.write("FALL 2015\n")
 
 	form = "{0:<20}{1:<20}\n"
 	

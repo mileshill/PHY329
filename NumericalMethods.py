@@ -91,10 +91,13 @@ def false_position( func, lower, upper, maxSteps=100,tol=10**(-6) ):
 	return p
 
 # -------------------- OPEN METHODS ----------------------------
+
 ######################################################################
 # NewtonRaphson:
 # Takes as input a function and initial root guess
-#	optional assignments of maxSteps and tolerance  
+#	optional assignments of maxSteps and tolerance.
+# Note that the package <numdifftools> is imported to handle the
+#	numerical derivatives  
 ######################################################################
 def newton_raphson( f, x0, maxSteps=10, tol=10.**(-6) ):
 	import numdifftools as nd
@@ -102,7 +105,6 @@ def newton_raphson( f, x0, maxSteps=10, tol=10.**(-6) ):
 	
 	i = 1;
 	a = x0
-
 
 	while (i < maxSteps):
 		

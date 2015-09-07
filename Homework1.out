@@ -1,0 +1,28 @@
+MILES HILL: mjh3664
+Homework 1
+UT PHY 329
+FALL 2015
+
+Chapter 5: Problem 7
+false_position      1.4970143020298659  
+bisection           1.419067144393921   
+
+Chapter 5: Problem 16
+false_position      9.11358788E+9       
+bisection           9.11358788E+9       
+
+Chapter 5: Problem 22
+false_position      1.425718549166519   
+bisection           1.4257185491665187  
+
+Chapter 6: Problem 19
+newton_raphson      220.0201563882179   
+secant_method       220.02015638821788  
+modified_secant     220.0201563882246   
+
+Chapter 6: Problem 22
+secant_method th2   51.652744837499014  
+secant_method th1   37.83797274594064   
+newton_raphson th1  37.83797274614031   
+newton_raphson th2  51.65274493666218   
+
