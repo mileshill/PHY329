@@ -108,7 +108,7 @@ def c6p19():
 # C6 P21: Solve using NewtonRaphson, Secant. 
 #	Determine angles given initial and final endpoints
 #-----------------------------------------------------------
-def c6p22():
+def c6p21():
 	# Trajectory
 	def y(theta, x, v0, y0, g=9.8 ):
 		return np.tan( theta ) * x - (g * x**2) /( 2 * v0**2 * np.cos( theta )**2 ) + y0
@@ -129,6 +129,6 @@ solutions['Chapter 5: Problem 7']  = c5p7()
 solutions['Chapter 5: Problem 16'] = c5p16()
 solutions['Chapter 5: Problem 22'] = c5p22()
 solutions['Chapter 6: Problem 19'] = c6p19()
-solutions['Chapter 6: Problem 22'] = c6p22()
+solutions['Chapter 6: Problem 21'] = c6p21()
 
  
