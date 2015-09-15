@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     30858,        762]
-NotebookOptionsPosition[     29425,        708]
-NotebookOutlinePosition[     29762,        723]
-CellTagsIndexPosition[     29719,        720]
+NotebookDataLength[     37034,        930]
+NotebookOptionsPosition[     35292,        866]
+NotebookOutlinePosition[     35629,        881]
+CellTagsIndexPosition[     35586,        878]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -531,8 +531,9 @@ XM+nLKpfe8qFk7gW9HJ45ZTPLzz4uyr5ecr/A5uj92U=
                     RGBColor[0.24561133333333335`, 0.3378526666666667, 
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
-                    Dynamic[{Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Dynamic[{Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -574,8 +575,9 @@ XM+nLKpfe8qFk7gW9HJ45ZTPLzz4uyr5ecr/A5uj92U=
                     RGBColor[0.587148, 0.40736066666666665`, 
                     0.09470066666666668], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
-                    Dynamic[{Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Dynamic[{Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -701,6 +703,162 @@ XM+nLKpfe8qFk7gW9HJ45ZTPLzz4uyr5ecr/A5uj92U=
  CellChangeTimes->{3.65108829527221*^9, 3.6510886472487297`*^9}]
 }, {2}]]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9.17 Stability of System", "Subsection",
+ CellChangeTimes->{{3.651240080688645*^9, 3.651240109655686*^9}}],
+
+Cell["\<\
+The Gaussian Elimination method has been altered so such that the determinant \
+near zero now exists as a possible stopping condition. If the absolute value \
+of the coefficient determinant is greater than the given tolerance, the \
+execution will procede normally. If the absolute value of the coefficient \
+determinant is less than the tolerance, an error message is returned \
+\[OpenCurlyDoubleQuote]GaussPivotNew::tolerance\[CloseCurlyDoubleQuote] and \
+execution halts.\
+\>", "Text",
+ CellChangeTimes->{{3.6512429650362873`*^9, 3.6512430804801693`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[DoubleStruckCapitalA]", "=", 
+   RowBox[{"(", GridBox[{
+      {"0.5", 
+       RowBox[{"-", "1."}]},
+      {"1.02", 
+       RowBox[{"-", "2."}]}
+     }], ")"}]}], ";", 
+  RowBox[{"b", "=", 
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"-", "9.5"}]},
+      {
+       RowBox[{"-", "18.8"}]}
+     }], ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6512401121539593`*^9, 3.651240178492547*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"GaussPivotNew", "::", "tolerance"}], "=", 
+   "\"\<Determinant is near zero. Singular array.\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GaussPivotNew", "[", 
+   RowBox[{
+    RowBox[{"a_", "?", "MatrixQ"}], ",", 
+    RowBox[{"b_", "?", "MatrixQ"}], ",", 
+    RowBox[{"tolerance_:", 
+     RowBox[{"10.", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "6"}], ")"}]}]}]}], "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Abs", "@", "#3"}], ")"}], " ", ">", " ", "tolerance"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"Grid", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<Det\>\"", ",", 
+                "\"\<\!\(\*OverscriptBox[\(x\), \(\[RightVector]\)]\)\>\""}], 
+               "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"#3", ",", 
+                RowBox[{"LinearSolve", "[", 
+                 RowBox[{"#", ",", "#2"}], "]"}]}], "}"}]}], "}"}], ",", 
+            RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+            RowBox[{"Spacings", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", " ", "1"}], "}"}]}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Message", "[", 
+           RowBox[{"GaussPivotNew", "::", "tolerance"}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}], "&"}], "[", 
+       RowBox[{"#", ",", "#2", ",", 
+        RowBox[{"Det", "@", "#"}]}], "]"}], "&"}], "[", 
+     RowBox[{"a", ",", "b"}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.65124017650327*^9, 3.651240333260598*^9}, {
+  3.6512403699799023`*^9, 3.651240651504369*^9}, {3.651240701043106*^9, 
+  3.651240813118534*^9}, {3.651242865566802*^9, 3.651242875522719*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DisplayColumn", "[", 
+  RowBox[{"\"\<Problem 9.17\>\"", ",", 
+   RowBox[{"{", "\"\<New Gauss Pivot\>\"", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"GaussPivotNew", "[", 
+     RowBox[{"\[DoubleStruckCapitalA]", ",", "b", ",", 
+      RowBox[{"10.", "^", 
+       RowBox[{"-", "6"}]}]}], "]"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.651242783306973*^9, 3.651242843251637*^9}}],
+
+Cell[BoxData[
+ PanelBox[
+  TemplateBox[{TagBox[
+     GridBox[{{
+        StyleBox[
+        "\"New Gauss Pivot\"", {
+         FontFamily -> "Calibri", FontSize -> 16, Background -> 
+          RGBColor[0.75, 0.75, 0.75]}, StripOnInput -> False]}, {
+        TagBox[
+         GridBox[{{
+           "\"Det\"", 
+            "\"\\!\\(\\*OverscriptBox[\\(x\\), \\(\[RightVector]\\)]\\)\""}, {
+           "0.020000000000000018`", 
+            RowBox[{"{", 
+              RowBox[{
+                RowBox[{"{", "9.999999999999943`", "}"}], ",", 
+                RowBox[{"{", "14.499999999999972`", "}"}]}], "}"}]}}, 
+          AutoDelete -> False, 
+          GridBoxFrame -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{1}}}], 
+         "Grid"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+      GridBoxBackground -> {"Columns" -> {{
+           GrayLevel[1]}}}, DefaultBaseStyle -> "Column", 
+      GridBoxDividers -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      GridBoxSpacings -> {"Columns" -> {{Automatic}}, "Rows" -> {{1.5}}}], 
+     "Column"],StyleBox[
+    "\"Problem 9.17\"", {
+     FontFamily -> "Calibri", FontSize -> 20, Background -> 
+      RGBColor[0.75, 0.75, 0.75]}, StripOnInput -> False]},
+   "Labeled",
+   DisplayFunction->(GridBox[{{
+       ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+       TagBox[
+        ItemBox[
+         PaneBox[
+          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+          BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+        "SkipImageSizeLevel"]}}, 
+     GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+     AutoDelete -> False, 
+     GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+      BaselinePosition -> {2, 1}]& ),
+   InterpretationFunction->(RowBox[{"Labeled", "[", 
+      RowBox[{#, ",", #2, ",", "Top"}], "]"}]& )]]], "Output",
+ CellChangeTimes->{3.65124284397526*^9}]
+}, {2}]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -757,9 +915,19 @@ Cell[CellGroupData[{
 Cell[9596, 294, 97, 1, 31, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[9718, 299, 1802, 41, 324, "Input"],
-Cell[11523, 342, 17829, 358, 677, "Output"]
+Cell[11523, 342, 17875, 360, 644, "Output"]
 }, {2}]]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29456, 709, 112, 1, 47, "Subsection"],
+Cell[29571, 712, 568, 9, 99, "Text"],
+Cell[30142, 723, 430, 16, 46, "Input"],
+Cell[30575, 741, 2054, 55, 206, "Input"],
+Cell[CellGroupData[{
+Cell[32654, 800, 406, 9, 32, "Input"],
+Cell[33063, 811, 2168, 48, 152, "Output"]
+}, {2}]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

@@ -161,35 +161,54 @@ def modified_secant( f, x0, dx, maxSteps=10, tol=10.**(-6) ):
 # Take an augmented matrix of dimentions ( n, n + 1 )
 #	return solutions 
 ########################==##############################################
-def gauss_elimination( m ):
-	# eliminate columns
-    for col in range(len(m[0])):
-        for row in range(col+1, len(m)):
-            r = [(rowValue * (-(m[row][col] / m[col][col]))) for rowValue in m[col]]
-            m[row] = [sum(pair) for pair in zip(m[row], r)]
-    # now backsolve by substitution
-    ans = []
-    m.reverse() # makes it easier to backsolve
-    for sol in range(len(m)):
-            if sol == 0:
-                ans.append(m[sol][-1] / m[sol][-2])
-            else:
-                inner = 0
-                # substitute in all known coefficients
-                for x in range(sol):
-                    inner += (ans[x]*m[sol][-2-x])
-                # the equation is now reduced to ax + b = c form
-                # solve with (c - b) / a
-                ans.append((m[sol][-1]-inner)/m[sol][-sol-2])
-    ans.reverse()
-    return ans
+def gauss_elimination( A, b, doPricing = True ):
+	"""
+	Gaussian elimination wih partial pivoting
+
+	input: 	A is an n x n numpy matrix
+			b is an n x 1 numpy array
+	output: x is the solution of A.x = b
+			with ten entries permuted in accordance 
+			with the pivoting done by the algorithm
+	post-condition: A and b have been modified
+	"""
+	import numpy as np
+
+	A = np.array(A)
+	b = np.array(b)
+	n = len(A)
+	if b.size != n:
+		raise ValueError("Invalid argument: incompatiable sizes between" +
+				"A & b.", b.size, n)
+
+	# k represents the current pivot row. Since GE traverses the matrix in the
+	# upper right triangle, we also use k for indicating the k-th diagonal
+	# column index
+
+	# Elimination
+	for k in range(n - 1):
+		if doPricing:
+			# Pivot
+			maxindex = abs(A[k:,k]).argmax() + k
+			if A[maxindex, k] == 0:
+				raise ValueError("Matrix is singular.")
+			# Swap
+			if maxindex != k:
+				A[[k, maxindex]] = A[[maxindex, k]]
+				b[[k, maxindex]] = b[[maxindex, k]]
+			else:
+				if A[k, k] == 0:
+					raise ValueError("Pivot element is zero. Try setting doPricing to True")
+
+	# Back Substitution
+	x = np.zeros(n)
+	for k in range(n-1, -1, -1):
+		x[k] = (b[k] - np.dot(A[k, k+1:], x[k+1:])) / A[k,k]
+	return x 
 
 
 
 
-print(gauss_elimination([[-3.0,2.0,-6.0,6.0],
-               [5.0,7.0,-5.0,6.0],
-               [1.0,4.0,-2.0,8.0]]))
 
 	
 
